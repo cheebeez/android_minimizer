@@ -1,10 +1,10 @@
 name: android_minimizer
 description: "Flutter plugin for minimizing an app with the Android back button."
-version: 0.0.1
+version: 1.0.0
 homepage: https://github.com/cheebeez/android_minimizer
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'
+  sdk: ^3.5.3
   flutter: '>=3.3.0'
 
 dependencies:

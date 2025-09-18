@@ -1,5 +1,5 @@
 /*
- *  BackButtonBehaviorPlugin.kt
+ *  AndroidMinimizerPlugin.kt
  *
  *  Created by Ilia Chirkunov <contact@cheebeez.com> on 05.12.2022.
  */
@@ -18,36 +18,36 @@ import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 
 /** AndroidMinimizerPlugin */
 class AndroidMinimizerPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
-  private lateinit var channel : MethodChannel
+    private lateinit var channel : MethodChannel
     private lateinit var activity: Activity;
 
-  override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "android_minimizer")
-    channel.setMethodCallHandler(this)
-  }
-
-  override fun onMethodCall(call: MethodCall, result: Result) {
-    if (call.method == "minimize") {
-      activity.moveTaskToBack(true)
-      result.success(1)
-    } else {
-      result.notImplemented()
+    override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "android_minimizer")
+        channel.setMethodCallHandler(this)
     }
-  }
 
-  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    this.activity = binding.activity
-  }
+    override fun onMethodCall(call: MethodCall, result: Result) {
+        if (call.method == "minimize") {
+            activity.moveTaskToBack(true)
+            result.success(1)
+        } else {
+            result.notImplemented()
+        }
+    }
 
-  override fun onDetachedFromActivity() {}
+    override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+        this.activity = binding.activity
+    }
 
-  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    this.activity = binding.activity
-  }
+    override fun onDetachedFromActivity() {}
 
-  override fun onDetachedFromActivityForConfigChanges() {}
+    override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+        this.activity = binding.activity
+    }
 
-  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-    channel.setMethodCallHandler(null)
-  }
+    override fun onDetachedFromActivityForConfigChanges() {}
+
+    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+        channel.setMethodCallHandler(null)
+    }
 }

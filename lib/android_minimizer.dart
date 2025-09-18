@@ -1,7 +1,7 @@
 /*
  *  back_button_behavior.dart
  *
- *  Created by Ilya Chirkunov <xc@yar.net> on 05.12.2022.
+ *  Created by Ilia Chirkunov <contact@cheebeez.com> on 05.12.2022.
  */
 
 import 'dart:async';
@@ -22,8 +22,10 @@ class AndroidMinimizer extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: !minimize,
-      onPopInvoked: (_) async {
-        if (minimize) _AndroidMinimizer.minimize();
+      onPopInvokedWithResult: (bool didPop, Object? result) {
+        if (minimize) {
+          _AndroidMinimizer.minimize();
+        }
       },
       child: child,
     );

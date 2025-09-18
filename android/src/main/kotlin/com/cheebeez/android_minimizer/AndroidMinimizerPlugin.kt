@@ -1,7 +1,7 @@
 /*
  *  BackButtonBehaviorPlugin.kt
  *
- *  Created by Ilya Chirkunov <xc@yar.net> on 27.11.2023.
+ *  Created by Ilia Chirkunov <contact@cheebeez.com> on 05.12.2022.
  */
 
 package com.cheebeez.android_minimizer

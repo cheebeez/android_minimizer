@@ -1,6 +1,6 @@
 name: android_minimizer
 description: "Flutter plugin for minimizing an app with the Android back button."
-version: 1.0.0
+version: 1.1.0
 homepage: https://github.com/cheebeez/android_minimizer
 
 environment:
